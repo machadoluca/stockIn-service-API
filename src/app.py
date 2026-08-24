@@ -6,8 +6,11 @@ import traceback
 
 app = Flask(__name__)
 
-# Forecast endpoint
-@app.route("/", methods=["POST"])
+@app.route("/", methods=["GET"])
+def index():
+    return "API de previsão de séries temporais usando Prophet."
+
+@app.route("/forecast", methods=["POST"])
 def predict():
     try:
         data = request.get_json()
